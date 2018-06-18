@@ -1,4 +1,4 @@
-{% set version = '1.8-17' %}
+{% set version = "1.8-24" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/mgcv_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/mgcv/mgcv_{{ version }}.tar.gz
-  sha256: 8ff3eb28c83ba7c9003005e7fe08028627fb673b9b07c0462b410e45e81042fe
+  sha256: 2ce542bcf841f722f34b936d44d859a53718a9de18ea24eb6ae843e042356795
 
 build:
   number: 0
