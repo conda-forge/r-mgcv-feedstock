@@ -1,5 +1,4 @@
-{% set version = "1.8-24" %}
-
+{% set version = '1.8-24' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,48 +9,58 @@ package:
 source:
   fn: mgcv_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/mgcv_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/mgcv/mgcv_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/mgcv_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/mgcv/mgcv_{{ version }}.tar.gz
   sha256: 2ce542bcf841f722f34b936d44d859a53718a9de18ea24eb6ae843e042356795
 
 build:
   merge_build_host: True  # [win]
-  number: 1
+  number: 2
   skip: true  # [win32]
-
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - posix                # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ compiler('c') }}        # [not win]
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
   host:
     - r-base
     - r-matrix
     - r-nlme >=3.1_64
-
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
     - r-matrix
     - r-nlme >=3.1_64
 
 test:
   commands:
-    - $R -e "library('mgcv')"  # [not win]
+    - $R -e "library('mgcv')"           # [not win]
     - "\"%R%\" -e \"library('mgcv')\""  # [win]
 
 about:
   home: https://CRAN.R-project.org/package=mgcv
   license: GPL (>= 2)
-  summary: GAMs, GAMMs and other generalized ridge regression with  multiple smoothing parameter
-    estimation by GCV, REML or UBRE/AIC.  Includes a gam() function, a wide variety
-    of smoothers, JAGS  support and distributions beyond the exponential family.
+  summary: Generalized additive (mixed) models, some of their extensions and  other generalized
+    ridge regression with multiple smoothing  parameter estimation by (Restricted) Marginal
+    Likelihood,  Generalized Cross Validation and similar. Includes a gam()  function,
+    a wide variety of smoothers, JAGS support and  distributions beyond the exponential
+    family.
   license_family: GPL3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
 
 extra:
   recipe-maintainers:
     - johanneskoester
     - bgruening
+    - daler
+    - jdblischak
+    - cbrueffer
