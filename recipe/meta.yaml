@@ -11,7 +11,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/mgcv_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/mgcv/mgcv_{{ version }}.tar.gz
-  sha256: 2ce542bcf841f722f34b936d44d859a53718a9de18ea24eb6ae843e042356795
+  sha256: a9f8e9823f6d6a4a568d151f2fa619bb2811df73c013e9a105720d9b32b4740c
 
 build:
   merge_build_host: True  # [win]
@@ -54,8 +54,7 @@ about:
     a wide variety of smoothers, JAGS support and  distributions beyond the exponential
     family.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
-  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
