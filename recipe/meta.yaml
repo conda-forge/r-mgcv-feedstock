@@ -1,4 +1,4 @@
-{% set version = '1.8-27' %}
+{% set version = '1.8-28' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/mgcv_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/mgcv/mgcv_{{ version }}.tar.gz
-  sha256: c88b99fb518decd7e9cd17a4c267e74f98a78172f056784194b5b127ca0f7d1b
+  sha256: b55ea8227cd5c263c266c3885fa3299aa6bd23b54186517f9299bf38a7bdd3ea
 
 build:
   merge_build_host: True  # [win]
@@ -62,7 +62,7 @@ extra:
     - conda-forge/r
 
 # Package: mgcv
-# Version: 1.8-27
+# Version: 1.8-28
 # Author: Simon Wood <simon.wood@r-project.org>
 # Maintainer: Simon Wood <simon.wood@r-project.org>
 # Title: Mixed GAM Computation Vehicle with Automatic Smoothness Estimation
@@ -75,6 +75,6 @@ extra:
 # ByteCompile: yes
 # License: GPL (>= 2)
 # NeedsCompilation: yes
-# Packaged: 2019-02-06 10:57:24 UTC; sw283
+# Packaged: 2019-03-21 08:56:32 UTC; sw283
 # Repository: CRAN
-# Date/Publication: 2019-02-06 15:00:03 UTC
+# Date/Publication: 2019-03-21 11:40:07 UTC
