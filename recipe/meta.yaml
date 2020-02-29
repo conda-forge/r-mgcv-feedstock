@@ -32,6 +32,7 @@ requirements:
   host:
     - r-base
     - libblas
+    - liblapack
     - r-matrix
     - r-nlme >=3.1_64
   run:
