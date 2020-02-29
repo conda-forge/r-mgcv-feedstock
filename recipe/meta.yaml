@@ -31,6 +31,7 @@ requirements:
     - llvm-openmp                # [osx]
   host:
     - r-base
+    - libblas
     - r-matrix
     - r-nlme >=3.1_64
   run:
