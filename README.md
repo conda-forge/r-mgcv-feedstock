@@ -3,7 +3,7 @@ About r-mgcv
 
 Home: https://CRAN.R-project.org/package=mgcv
 
-Package license: GPL-2
+Package license: GPL-2.0-or-later
 
 Feedstock license: BSD-3-Clause
 
