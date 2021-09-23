@@ -1,4 +1,4 @@
-{% set version = "1.8-36" %}
+{% set version = "1.8-37" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/mgcv_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/mgcv/mgcv_{{ version }}.tar.gz
-  sha256: 42b1df11a2e7128d3da842cfc2d8e408a39a8af6456fec7efa54772d4e215600
+  sha256: 8823f6da39e65cf44da3fe9d17c08904e98f3669beca28d5ca6f7bd64938fc91
 
 build:
   merge_build_host: true  # [win]
