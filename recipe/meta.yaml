@@ -14,7 +14,7 @@ source:
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 2
   rpaths:
     - lib/R/lib/
     - lib/
@@ -24,26 +24,26 @@ requirements:
     - cross-r-base {{ r_base }}  # [build_platform != target_platform]
     - r-matrix                   # [build_platform != target_platform]
     - r-nlme >=3.1_64            # [build_platform != target_platform]
-    - {{ compiler('c') }}              # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ posix }}filesystem        # [win]
+    - {{ compiler('c') }}        # [not win]
+    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ posix }}filesystem      # [win]
     - {{ posix }}make
-    - {{ posix }}sed               # [win]
-    - {{ posix }}coreutils         # [win]
-    - {{ posix }}zip               # [win]
-    - llvm-openmp                # [osx]
+    - {{ posix }}sed             # [win]
+    - {{ posix }}coreutils       # [win]
+    - {{ posix }}zip             # [win]
   host:
     - r-base
     - libblas
     - liblapack
+    - libgomp                    # [linux]
+    - llvm-openmp                # [osx]
     - r-matrix
     - r-nlme >=3.1_64
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
+    - {{ native }}gcc-libs       # [win]
     - r-matrix
     - r-nlme >=3.1_64
-    - llvm-openmp                # [osx]
 
 test:
   commands:
@@ -58,25 +58,8 @@ about:
   license_family: GPL2
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-
-# Package: mgcv
-# Version: 1.8-29
-# Author: Simon Wood <simon.wood@r-project.org>
-# Maintainer: Simon Wood <simon.wood@r-project.org>
-# Title: Mixed GAM Computation Vehicle with Automatic Smoothness Estimation
-# Description: Generalized additive (mixed) models, some of their extensions and other generalized ridge regression with multiple smoothing parameter estimation by (Restricted) Marginal Likelihood, Generalized Cross Validation and similar, or using iterated nested Laplace approximation for fully Bayesian inference. See Wood (2017) <doi:10.1201/9781315370279> for an overview. Includes a gam() function, a wide variety of smoothers, 'JAGS' support and distributions beyond the exponential family.
-# Priority: recommended
-# Depends: R (>= 2.14.0), nlme (>= 3.1-64)
-# Imports: methods, stats, graphics, Matrix, splines, utils
-# Suggests: parallel, survival, MASS
-# LazyLoad: yes
-# ByteCompile: yes
-# License: GPL (>= 2)
-# NeedsCompilation: yes
-# Packaged: 2019-09-20 08:29:01 UTC; sw283
-# Repository: CRAN
-# Date/Publication: 2019-09-20 10:00:04 UTC
