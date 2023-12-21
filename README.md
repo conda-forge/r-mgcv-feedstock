@@ -3,6 +3,7 @@ About r-mgcv-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-mgcv-feedstock/blob/main/LICENSE.txt)
 
+
 About r-mgcv
 ------------
 
@@ -11,6 +12,7 @@ Home: https://CRAN.R-project.org/package=mgcv
 Package license: GPL-2.0-or-later
 
 Summary: Generalized additive (mixed) models, some of their extensions and other generalized ridge regression with multiple smoothing parameter estimation by (Restricted) Marginal Likelihood, Generalized Cross Validation and similar, or using iterated nested Laplace approximation for fully Bayesian inference. See Wood (2017) <doi:10.1201/9781315370279> for an overview. Includes a gam() function, a wide variety of smoothers, 'JAGS' support and distributions beyond the exponential family.
+
 About r-mgcv
 ------------
 
@@ -195,7 +197,7 @@ available continuous integration services. Thanks to the awesome service provide
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
 [Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
 it is possible to build and upload installable packages to the
-[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
