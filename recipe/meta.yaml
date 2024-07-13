@@ -1,6 +1,5 @@
 {% set version = "1.9-1" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-mgcv
@@ -13,8 +12,7 @@ source:
   sha256: 700fbc37bedd3a49505b9bc4949faee156d9cfb4f669d797d06a10a15a5bdb32
 
 build:
-  merge_build_host: true  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -25,7 +23,9 @@ requirements:
     - r-matrix                   # [build_platform != target_platform]
     - r-nlme >=3.1_64            # [build_platform != target_platform]
     - {{ compiler('c') }}        # [not win]
+    - {{ stdlib("c") }}          # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
+    - {{ stdlib("m2w64_c") }}    # [win]
     - {{ posix }}filesystem      # [win]
     - {{ posix }}make
     - {{ posix }}sed             # [win]
@@ -41,7 +41,6 @@ requirements:
     - r-nlme >=3.1_64
   run:
     - r-base
-    - {{ native }}gcc-libs       # [win]
     - r-matrix
     - r-nlme >=3.1_64
 
