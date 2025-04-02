@@ -1,4 +1,4 @@
-{% set version = "1.9-1" %}
+{% set version = "1.9-2" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/mgcv_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/mgcv/mgcv_{{ version }}.tar.gz
-  sha256: 700fbc37bedd3a49505b9bc4949faee156d9cfb4f669d797d06a10a15a5bdb32
+  sha256: 164ee33586a8fbcb29237e85333051bb78c553feeed1699403fa385ad6e05223
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
