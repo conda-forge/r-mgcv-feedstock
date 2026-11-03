@@ -1,4 +1,4 @@
-{% set version = "1.9-4" %}
+{% set version = "1.9-5" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/mgcv_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/mgcv/mgcv_{{ version }}.tar.gz
-  sha256: a98159698afb269e06a46cac1f945bf2b3427a2dd587c6f2efd67ede90089372
+  sha256: d079c68e500708de4df79692e83493636004915dc6689cd7350e226291abd992
 
 build:
   number: 0
@@ -59,8 +59,8 @@ test:
 about:
   home: https://CRAN.R-project.org/package=mgcv
   license: GPL-2.0-or-later
-  summary: Generalized additive (mixed) models, some of their extensions and other generalized ridge regression with multiple smoothing parameter estimation by (Restricted) Marginal Likelihood, Generalized Cross Validation and similar, or using iterated nested Laplace approximation for fully Bayesian inference. See Wood
-    (2017) <doi:10.1201/9781315370279> for an overview. Includes a gam() function, a wide variety of smoothers, 'JAGS' support and distributions beyond the exponential family.
+  summary: Generalized additive (mixed) models, some of their extensions and other generalized ridge regression with multiple smoothing parameter estimation by (Restricted) Marginal Likelihood, Generalized Cross Validation and similar, or using iterated nested Laplace approximation for fully Bayesian inference. See 
+    Wood (2017) <doi:10.1201/9781315370279> for an overview. Includes a gam() function, a wide variety of smoothers, 'JAGS' support and distributions beyond the exponential family.
   license_family: GPL2
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
